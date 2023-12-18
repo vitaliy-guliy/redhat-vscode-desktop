@@ -14,6 +14,7 @@ import * as vscode from 'vscode';
 import { DesktopExtension } from './model/extension-model';
 import { inject, injectable } from 'inversify';
 import { initBindings } from './bindings';
+import { log } from 'console';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
     const container = initBindings();
@@ -49,6 +50,25 @@ export class DesktopExtensionImpl implements DesktopExtension {
         // context.subscriptions.push(vscode.commands.registerCommand('vscode-devfile.new-environment-variable', async () => this.newEnvironmentVariable.run()));
         // context.subscriptions.push(vscode.commands.registerCommand('vscode-devfile.new-command', async () => this.newCommand.run()));
         // context.subscriptions.push(vscode.commands.registerCommand('vscode-devfile.install-yaml', async () => this.installYaml.run()));
+
+        try {
+            context.subscriptions.push(vscode.window.registerUriHandler({
+                handleUri(uri: vscode.Uri) {
+                    log('Handling Uri...', uri.toString());
+                    // if (uri.path === GitpodServer.AUTH_COMPLETE_PATH) {
+                    //     authProvider.handleUri(uri);
+                    // } else {
+                    //     remoteConnector.handleUri(uri);
+                    // }
+                }
+            }));
+    
+        } catch (error) {
+
+        } finally {
+
+        }
+
     }
 
 }
