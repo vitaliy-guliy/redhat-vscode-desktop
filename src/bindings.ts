@@ -12,8 +12,9 @@ import { Container } from 'inversify';
 // import { NewCommandImpl } from './command/new-command';
 // import { NewContainerImpl } from './command/new-container';
 // import { SaveDevfileImpl } from './command/save-devfile';
-// import { DevfileExtensionImpl } from './devfile-extension';
+import { DesktopExtensionImpl } from './extension';
 // import { DevfileService } from './devfile/devfile-service';
+import { DesktopExtension } from './model/extension-model';
 // import { DevfileExtension, NewCommand, NewContainer, NewEndpoint, NewEnvironmentVariable, SaveDevfile } from './model/extension-model';
 // import { NewEndpointImpl } from './command/new-endpoint';
 // import { NewEnvironmentVariableImpl } from './command/new-environment-variable';
@@ -22,8 +23,8 @@ import { Container } from 'inversify';
 export function initBindings(): Container {
     const container = new Container();
 
-    // container.bind(DevfileExtensionImpl).toSelf().inSingletonScope();
-    // container.bind(DevfileExtension).toService(DevfileExtensionImpl);
+    container.bind(DesktopExtensionImpl).toSelf().inSingletonScope();
+    container.bind(DesktopExtension).toService(DesktopExtensionImpl);
 
     // container.bind(DevfileService).toSelf().inSingletonScope();
 

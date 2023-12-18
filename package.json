@@ -14,11 +14,11 @@
     "categories": [
       "Other"
     ],
-    "icon": "media/che.png",
+    "icon": "media/redhat-icon.png",
     "activationEvents": [
       "*"
     ],
-    "main": "./out/devfile-extension.js",
+    "main": "./out/extension.js",
     "scripts": {
       "build-vsix": "vsce package --out redhat-vscode-desktop-0.0.1.vsix",
       "build-vsix-ignorewarnings": "vsce package --allow-star-activation --out redhat-vscode-desktop-0.0.1.vsix",
