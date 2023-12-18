@@ -1,0 +1,50 @@
+{
+    "name": "vscode-desktop",
+    "publisher": "redhat",
+    "displayName": "vscode-desktop",
+    "description": "Allows the user to easily connect local VS Code to a remote workspace",
+    "version": "0.0.1",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/vitaliy-guliy/redhat-vscode-desktop"
+    },
+    "engines": {
+      "vscode": "^1.74.0"
+    },
+    "categories": [
+      "Other"
+    ],
+    "icon": "media/che.png",
+    "activationEvents": [
+      "*"
+    ],
+    "main": "./out/devfile-extension.js",
+    "scripts": {
+      "build-vsix": "vsce package --out redhat-vscode-desktop-0.0.1.vsix",
+      "build-vsix-ignorewarnings": "vsce package --allow-star-activation --out redhat-vscode-desktop-0.0.1.vsix",
+      "vscode:prepublish": "npm run compile",
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./",
+      "pretest": "npm run compile && npm run lint",
+      "lint": "eslint src --ext ts",
+      "cleanup": "rm -f ./redhat-vscode-desktop-0.0.1.vsix && rm -rf ./out"
+    },
+    "dependencies": {
+      "inversify": "^5.0.1",
+      "js-yaml": "^3.13.1",
+      "reflect-metadata": "^0.1.13"
+    },
+    "devDependencies": {
+      "@types/node": "16.x",
+      "@types/vscode": "^1.74.0",
+      "@typescript-eslint/eslint-plugin": "^5.49.0",
+      "@typescript-eslint/parser": "^5.49.0",
+      "eslint": "^8.33.0",
+      "typescript": "^4.9.4",
+      "vsce": "^2.15.0"
+    },
+    "contributes": {
+      "commands": [
+      ]
+    }
+  }
