@@ -15,4 +15,4 @@ To get the extension binary:
 
 - build the extension binary with
 
-  `$ npm run build-vsix`
+  `$ npm run build`

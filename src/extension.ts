@@ -14,7 +14,7 @@ import * as vscode from 'vscode';
 import { DesktopExtension } from './model/extension-model';
 import { inject, injectable } from 'inversify';
 import { initBindings } from './bindings';
-import { log } from 'console';
+import { log } from './logger';
 
 export async function activate(context: vscode.ExtensionContext): Promise<void> {
     const container = initBindings();
@@ -54,7 +54,7 @@ export class DesktopExtensionImpl implements DesktopExtension {
         try {
             context.subscriptions.push(vscode.window.registerUriHandler({
                 handleUri(uri: vscode.Uri) {
-                    log('Handling Uri...', uri.toString());
+                    log('Handling Uri...' + uri.toString());
                     // if (uri.path === GitpodServer.AUTH_COMPLETE_PATH) {
                     //     authProvider.handleUri(uri);
                     // } else {

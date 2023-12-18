@@ -20,14 +20,14 @@
     ],
     "main": "./out/extension.js",
     "scripts": {
-      "build-vsix": "vsce package --out redhat-vscode-desktop-0.0.1.vsix",
+      "build": "vsce package --allow-star-activation --out redhat-vscode-desktop-0.0.1.vsix",
       "build-vsix-ignorewarnings": "vsce package --allow-star-activation --out redhat-vscode-desktop-0.0.1.vsix",
       "vscode:prepublish": "npm run compile",
       "compile": "tsc -p ./",
       "watch": "tsc -watch -p ./",
       "pretest": "npm run compile && npm run lint",
       "lint": "eslint src --ext ts",
-      "cleanup": "rm -f ./redhat-vscode-desktop-0.0.1.vsix && rm -rf ./out"
+      "cleanup": "rm -f ./redhat-vscode-desktop-0.0.1.vsix && rm -rf ./out && rm -rf ./node_modules"
     },
     "dependencies": {
       "inversify": "^5.0.1",
