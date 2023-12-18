@@ -1,0 +1,53 @@
+<html>
+<body>
+
+<h2>
+* Test vscode://gitpod.gitpod-desktop&nbsp;<a href="vscode://gitpod.gitpod-desktop/workspace/sample-remote-plugin?%7B%22instanceId%22%3A%220736a2bc-e031-4800-b471-4d606fb69935%22%2C%22workspaceId%22%3A%22vitaliyguli-sampleremot-93t1rgmax7h%22%2C%22gitpodHost%22%3A%22https%3A%2F%2Fgitpod.io%22%2C%22debugWorkspace%22%3Afalse%7D">GO</a>
+</h2>
+
+<h2>
+    * Test vscode://bierner.markdown-mermaid&nbsp;<a href="vscode://bierner.markdown-mermaid/workspace/sample-remote-plugin?%7B%22instanceId%22%3A%220736a2bc-e031-4800-b471-4d606fb69935%22%2C%22workspaceId%22%3A%22vitaliyguli-sampleremot-93t1rgmax7h%22%2C%22gitpodHost%22%3A%22https%3A%2F%2Fgitpod.io%22%2C%22debugWorkspace%22%3Afalse%7D">GO</a>
+</h2>
+
+<hr>
+<h2>
+* Test vscode://redhat.vscode-desktop&nbsp;<a id="test.href" href="vscode://redhat.vscode-desktop/workspace/sample-remote-plugin?%7B%22instanceId%22%3A%220736a2bc-e031-4800-b471-4d606fb69935%22%2C%22workspaceId%22%3A%22vitaliyguli-sampleremot-93t1rgmax7h%22%2C%22gitpodHost%22%3A%22https%3A%2F%2Fgitpod.io%22%2C%22debugWorkspace%22%3Afalse%7D">GO</a>
+</h2>
+
+<script>
+
+const test = {
+    "instanceId":"0736a2bc-e031-4800-b471-4d606fb69935",
+    "workspaceId":"vitaliyguli-sampleremot-93t1rgmax7h",
+    "gitpodHost":"https://gitpod.io",
+    "debugWorkspace":false
+};
+
+const obj = {
+    "DASHBOARD_URL": "https://che-dogfooding.apps.che-dev.x6e0.p1.openshiftapps.com",
+    "DEVWORKSPACE_NAME": "gitpod-vscode-desktop",
+    "DEVWORKSPACE_NAMESPACE": "vitaliy-guliy-che"
+};
+
+const base_uri = `vscode://redhat.vscode-desktop/${obj.DEVWORKSPACE_NAMESPACE}/${obj.DEVWORKSPACE_NAME}?`;
+console.log(`Base URI: ${base_uri}`);
+
+const serialized = JSON.stringify(obj);
+console.log(`serialized: ${serialized}`);
+
+const encoded = encodeURI(serialized);
+console.log(`Encoded: ${encoded}`);
+
+
+const next_uri = `vscode://redhat.vscode-desktop/${obj.DEVWORKSPACE_NAMESPACE}/${obj.DEVWORKSPACE_NAME}?dashboard=${encodeURIComponent(obj.DASHBOARD_URL)}`;
+console.log(`Next URI: ${next_uri}`);
+
+const e = document.getElementById("test.href");
+console.log('>>', e);
+console.log('>>>', e.href);
+e.href = next_uri;
+// document.getElementById("test.href").href = next_uri;
+
+</script>
+
+</body>
