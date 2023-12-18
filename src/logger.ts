@@ -15,7 +15,7 @@ let output: vscode.OutputChannel | undefined = undefined;
 export function log(msg: string) {
     if (!output) {
         output = vscode.window.createOutputChannel('redhat-desktop-extension');
-        // output.show(true);
+        output.show(true);
     }
 
     output?.appendLine(msg);

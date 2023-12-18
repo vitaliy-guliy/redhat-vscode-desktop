@@ -43,7 +43,7 @@ export class DesktopExtensionImpl implements DesktopExtension {
     // private installYaml: InstallYaml;
 
     public async start(context: vscode.ExtensionContext): Promise<void> {
-        console.log('>> DesktopExtensionImpl :: start');
+        log('>> DesktopExtensionImpl :: start');
         vscode.window.showInformationMessage('>> DesktopExtensionImpl :: start');
         // context.subscriptions.push(vscode.commands.registerCommand('vscode-devfile.new-container', async () => this.newContainer.run()));
         // context.subscriptions.push(vscode.commands.registerCommand('vscode-devfile.new-endpoint', async () => this.newEndpoint.run()));
